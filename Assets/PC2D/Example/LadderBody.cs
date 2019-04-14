@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace PC2D
+namespace PC2D.Example
 {
     public class LadderBody : SpriteDebug
     {

@@ -1,37 +1,39 @@
 ﻿using UnityEngine;
-using System.Collections;
 
-public class DifferentSpeeds : MonoBehaviour
+namespace PC2D.Example.DifferentSpeeds
 {
-    public KeyCode keyCodeToStart;
-    public float distanceToGo;
-
-    private bool _hasStarted;
-    private Vector3 _startPosition;
-    private PlatformerMotor2D _motor;
-
-    // Use this for initialization
-    void Start()
+    public class DifferentSpeeds : MonoBehaviour
     {
-        _motor = GetComponent<PlatformerMotor2D>();
-    }
+        public KeyCode keyCodeToStart;
+        public float distanceToGo;
 
-    // Update is called once per frame
-    void Update()
-    {
-        if (!_hasStarted && Input.GetKeyDown(keyCodeToStart))
+        private bool _hasStarted;
+        private Vector3 _startPosition;
+        private PlatformerMotor2D _motor;
+
+        // Use this for initialization
+        void Start()
         {
-            _hasStarted = true;
-            _startPosition = transform.position;
-            _motor.normalizedXMovement = 1f;
+            _motor = GetComponent<PlatformerMotor2D>();
         }
 
-        if (_hasStarted)
+        // Update is called once per frame
+        void Update()
         {
-            if (Vector3.Distance(transform.position, _startPosition) >= distanceToGo)
+            if (!_hasStarted && UnityEngine.Input.GetKeyDown(keyCodeToStart))
             {
-                _motor.normalizedXMovement *= -1;
+                _hasStarted = true;
                 _startPosition = transform.position;
+                _motor.normalizedXMovement = 1f;
+            }
+
+            if (_hasStarted)
+            {
+                if (Vector3.Distance(transform.position, _startPosition) >= distanceToGo)
+                {
+                    _motor.normalizedXMovement *= -1;
+                    _startPosition = transform.position;
+                }
             }
         }
     }

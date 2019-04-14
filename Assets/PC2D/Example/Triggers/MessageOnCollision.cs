@@ -1,47 +1,50 @@
 ﻿using UnityEngine;
 
-public class MessageOnCollision : MonoBehaviour
+namespace PC2D.Example.Triggers
 {
-    public Color triggerColor;
-
-    private Color _originalColor;
-
-    void Start()
+    public class MessageOnCollision : MonoBehaviour
     {
-        _originalColor = GetComponent<SpriteRenderer>().color;
-    }
+        public Color triggerColor;
 
-    void OnTriggerEnter2D(Collider2D o)
-    {
-        GetComponent<SpriteRenderer>().color = triggerColor;
-        Debug.Log(gameObject.name + " OnTriggerEnter with " + o.name);
-    }
+        private Color _originalColor;
 
-    void OnTriggerStay2D(Collider2D o)
-    {
-        GetComponent<SpriteRenderer>().color = triggerColor;
-        Debug.Log(gameObject.name + " OnTriggerStay with " + o.name);
-    }
+        void Start()
+        {
+            _originalColor = GetComponent<SpriteRenderer>().color;
+        }
 
-    void OnTriggerExit2D(Collider2D o)
-    {
-        GetComponent<SpriteRenderer>().color = _originalColor;
-        Debug.Log(gameObject.name + " OnTriggerExit with " + o.name);
-    }
+        void OnTriggerEnter2D(Collider2D o)
+        {
+            GetComponent<SpriteRenderer>().color = triggerColor;
+            Debug.Log(gameObject.name + " OnTriggerEnter with " + o.name);
+        }
 
-    void OnCollisionEnter2D(Collision2D o)
-    {
-        Debug.Log(gameObject.name + " OnCollisionEnter with " + o.collider.name);
-    }
+        void OnTriggerStay2D(Collider2D o)
+        {
+            GetComponent<SpriteRenderer>().color = triggerColor;
+            Debug.Log(gameObject.name + " OnTriggerStay with " + o.name);
+        }
 
-    void OnCollisionStay2D(Collision2D o)
-    {
-        Debug.Log(gameObject.name + " OnCollisionStay with " + o.collider.name);
-    }
+        void OnTriggerExit2D(Collider2D o)
+        {
+            GetComponent<SpriteRenderer>().color = _originalColor;
+            Debug.Log(gameObject.name + " OnTriggerExit with " + o.name);
+        }
 
-    void OnCollisionExit2D(Collision2D o)
-    {
-        Debug.Log(gameObject.name + " OnCollisionExit with " + o.collider.name);
-    }
+        void OnCollisionEnter2D(Collision2D o)
+        {
+            Debug.Log(gameObject.name + " OnCollisionEnter with " + o.collider.name);
+        }
 
+        void OnCollisionStay2D(Collision2D o)
+        {
+            Debug.Log(gameObject.name + " OnCollisionStay with " + o.collider.name);
+        }
+
+        void OnCollisionExit2D(Collision2D o)
+        {
+            Debug.Log(gameObject.name + " OnCollisionExit with " + o.collider.name);
+        }
+
+    }
 }

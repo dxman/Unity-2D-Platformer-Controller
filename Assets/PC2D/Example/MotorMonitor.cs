@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
 
-namespace PC2D
+namespace PC2D.Example
 {
     public class MotorMonitor : MonoBehaviour
     {
